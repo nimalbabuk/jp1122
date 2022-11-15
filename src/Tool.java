@@ -1,5 +1,3 @@
-package jp1122;
-
 public enum Tool {
 	CHNS("Chainsaw", "Stihl", 1.99, true, false, true), LADW("Ladder", "Werner", 1.49, false, true, true),
 	JAKD("Jackhammer", "DeWalt", 2.99, false, false, true), JAKR("Jackhammer", "Ridgid", 2.99, false, false, true);

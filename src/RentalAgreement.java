@@ -1,4 +1,4 @@
-package jp1122;
+
 
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
@@ -25,7 +25,7 @@ public class RentalAgreement {
 		this.checkout = checkout;
 	}
 	
-	public static String generateRentalAgreement(String tool, int rentalDays, int discountRate, LocalDate checkoutDate) {
+	public String generateRentalAgreement() {
 		LocalDate checkin = checkout.plusDays(days);		
 		int chargeDays = getChargeDays(rentalTool, checkout, days);
 		double fullCharge = chargeDays*rentalTool.getDailyCharge();
@@ -34,17 +34,17 @@ public class RentalAgreement {
 		
 		StringBuilder rentalAgreement = new StringBuilder();
 		rentalAgreement.append("Tool Code: " + rentalTool.toString());
-		rentalAgreement.append("Tool Type: "+ rentalTool.getType());
-		rentalAgreement.append("Tool brand: " + rentalTool.getBrand());
-		rentalAgreement.append("Rental Days: "+ days);
-		rentalAgreement.append("Checkout Date: " + formatter.format(checkout));
-		rentalAgreement.append("Due Date: " + formatter.format(checkin));
-		rentalAgreement.append("Daily Charge: $" + rentalTool.getDailyCharge());
-		rentalAgreement.append("Charge Days: " + chargeDays);
-		rentalAgreement.append("Pre-Discount Charge: " + fullCharge);
-		rentalAgreement.append("Discount Rate: " + discount + "%");
-		rentalAgreement.append("Discount Amount: $" + discountAmount);
-		rentalAgreement.append("Final Charge: $" + finalCharge);
+		rentalAgreement.append("\nTool Type: "+ rentalTool.getType());
+		rentalAgreement.append("\nTool brand: " + rentalTool.getBrand());
+		rentalAgreement.append("\nRental Days: "+ days);
+		rentalAgreement.append("\nCheckout Date: " + formatter.format(checkout));
+		rentalAgreement.append("\nDue Date: " + formatter.format(checkin));
+		rentalAgreement.append("\nDaily Charge: $" + rentalTool.getDailyCharge());
+		rentalAgreement.append("\nCharge Days: " + chargeDays);
+		rentalAgreement.append("\nPre-Discount Charge: " + fullCharge);
+		rentalAgreement.append("\nDiscount Rate: " + discount + "%");
+		rentalAgreement.append("\nDiscount Amount: $" + discountAmount);
+		rentalAgreement.append("\nFinal Charge: $" + finalCharge);
 		
 		return rentalAgreement.toString();
 	}

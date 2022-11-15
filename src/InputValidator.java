@@ -1,11 +1,9 @@
-package jp1122;
-
 import java.util.Arrays;
 
 public class InputValidator {
 
 	public static final boolean validateTool(String tool) {
-		if (Arrays.asList(Tool.values()).contains(tool))
+		if (Arrays.asList(Tool.values()).contains(Tool.getTool(tool)))
 			return true;
 		else
 			return false;
